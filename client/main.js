@@ -32,7 +32,7 @@ const getQuote = () => {
 const getAffirmation = () => {
   axios.get("http://localhost:4000/api/affirmation/").then((res) => {
     const affirmation = document.getElementById("affirmation");
-    const affirmationList = document.createElement("li");
+    const affirmationList = document.createElement("h4");
     const deleteButton = document.createElement("button");
     const data = res.data;
     affirmation.appendChild(affirmationList);

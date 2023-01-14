@@ -1,3 +1,19 @@
+let quotes = [
+  "Don’t limit your challenges. Challenge your limits.",
+  "Dreams don’t work unless you do.",
+  "Focus on being productive instead of busy.",
+  "You’re so much stronger than your excuses.",
+  "You can do anything you set your mind to.",
+];
+
+const affirmation = [
+  "I'm good enough, I'm smart enough, and doggone it, people like me.",
+  "That's just stinkin' thinkin!",
+  "You're should-ing all over yourself",
+  "I am a worthy human being",
+  "Trace it, face it, and erase it",
+];
+
 module.exports = {
   getCompliment: (req, res) => {
     const compliments = [
@@ -28,33 +44,18 @@ module.exports = {
   },
 
   getQuote: (req, res) => {
-    const quotes = [
-      "Don’t limit your challenges. Challenge your limits.",
-      "Dreams don’t work unless you do.",
-      "Focus on being productive instead of busy.",
-      "You’re so much stronger than your excuses.",
-      "You can do anything you set your mind to.",
-    ];
     // choose random quotes
     let randomIndex = Math.floor(Math.random() * quotes.length);
     let randomQuote = quotes[randomIndex];
     res.status(200).send(randomQuote);
-    console.log(randomIndex);
-    console.log(randomQuote);
+    quotes.splice(randomIndex, 1);
   },
 
   getAffirmation: (req, res) => {
-    const affirmation = [
-      "I'm good enough, I'm smart enough, and doggone it, people like me.",
-      "That's just stinkin' thinkin!",
-      "You're should-ing all over yourself",
-      "I am a worthy human being",
-      "Trace it, face it, and erase it",
-    ];
-
     // choose random affirmation
     let randomIndex = Math.floor(Math.random() * affirmation.length);
     let randomAffirmation = affirmation[randomIndex];
     res.status(200).send(randomAffirmation);
+    affirmation.splice(randomIndex, 1);
   },
 };
