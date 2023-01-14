@@ -2,7 +2,6 @@ const complimentBtn = document.getElementById("complimentButton");
 const fortuneBtn = document.getElementById("fortuneButton");
 const quotesBtn = document.getElementById("quotesButton");
 const affirmationBtn = document.getElementById("affirmationButton");
-const inspiration = document.getElementById("inspiration");
 
 const getCompliment = () => {
   axios.get("http://localhost:4000/api/compliment/").then((res) => {
@@ -20,15 +19,21 @@ const getFortune = () => {
 
 const getQuote = () => {
   axios.get("http://localhost:4000/api/quote/").then((res) => {
+    const inspiration = document.getElementById("inspiration");
+    const inspirationList = document.createElement("li");
     const data = res.data;
-    alert(data);
+    inspiration.appendChild(inspirationList);
+    inspirationList.innerHTML = data;
   });
 };
 
 const getAffirmation = () => {
   axios.get("http://localhost:4000/api/affirmation/").then((res) => {
+    const affirmation = document.getElementById("affirmation");
+    const affirmationList = document.createElement("li");
     const data = res.data;
-    alert(data);
+    affirmation.appendChild(affirmationList);
+    affirmationList.innerHTML = data;
   });
 };
 
