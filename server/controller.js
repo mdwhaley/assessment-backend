@@ -5,11 +5,9 @@ module.exports = {
       "Cool shirt!",
       "Your Javascript skills are stellar.",
     ];
-
     // choose random compliment
     let randomIndex = Math.floor(Math.random() * compliments.length);
     let randomCompliment = compliments[randomIndex];
-
     res.status(200).send(randomCompliment);
   },
 
@@ -23,11 +21,9 @@ module.exports = {
       "The philosophy of one century is the common sense of the next.",
       "Your dreams are worth your best efforts to achieve them.",
     ];
-
     // choose random fortunes
     let randomIndex = Math.floor(Math.random() * fortunes.length);
     let randomFortune = fortunes[randomIndex];
-
     res.status(200).send(randomFortune);
   },
 
@@ -39,12 +35,12 @@ module.exports = {
       "You’re so much stronger than your excuses.",
       "You can do anything you set your mind to.",
     ];
-
     // choose random quotes
     let randomIndex = Math.floor(Math.random() * quotes.length);
     let randomQuote = quotes[randomIndex];
-
     res.status(200).send(randomQuote);
+    console.log(randomIndex);
+    console.log(randomQuote);
   },
 
   getAffirmation: (req, res) => {
@@ -59,7 +55,6 @@ module.exports = {
     // choose random affirmation
     let randomIndex = Math.floor(Math.random() * affirmation.length);
     let randomAffirmation = affirmation[randomIndex];
-
     res.status(200).send(randomAffirmation);
   },
 };
