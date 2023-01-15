@@ -53,6 +53,10 @@ const deleteDailyQuote = (id) =>
     .delete(`http://localhost:4000/api/dailyQuotes/${id}`)
     .then(quotesCallback);
 
+const changeDay = (id, type) =>
+  axios
+    .put(`http://localhost:4000/api/dailyQuotes/${id}`, { type })
+    .then(quotesCallback);
 function createQuoteCard(quote) {
   const quoteCard = document.createElement("div");
   quoteCard.classList.add("quote-card");
@@ -60,9 +64,9 @@ function createQuoteCard(quote) {
   quoteCard.innerHTML = `
   <p class="quote-title">${quote.quote}</p>
   <div class="btns-container">
-      <button onclick="updatequote(${quote.id}, 'minus')">-</button>
+      <button onclick="changeDay(${quote.id}, 'minus')">-</button>
       <p class="quote-day">${quote.day} </p>
-      <button onclick="updatequote(${quote.id}, 'plus')">+</button>
+      <button onclick="changeDay(${quote.id}, 'plus')">+</button>
   </div>
   <button onclick="deleteDailyQuote(${quote.id})">delete</button>
   `;

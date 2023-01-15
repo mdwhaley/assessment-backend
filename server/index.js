@@ -14,6 +14,7 @@ const {
   getAffirmation,
   getDailyQuotes,
   deleteDailyQuote,
+  changeDay,
 } = require("./controller");
 
 app.get("/api/compliment", getCompliment);
@@ -22,5 +23,6 @@ app.get("/api/quote", getQuote);
 app.get("/api/affirmation", getAffirmation);
 app.get("/api/dailyQuotes", getDailyQuotes);
 app.delete("/api/dailyQuotes/:id", deleteDailyQuote);
+app.put("/api/dailyQuotes/:id", changeDay);
 
 app.listen(4000, () => console.log("Server running on 4000"));

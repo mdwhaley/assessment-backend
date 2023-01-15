@@ -68,4 +68,43 @@ module.exports = {
     dailyQuotes.splice(index, 1);
     res.status(200).send(dailyQuotes);
   },
+  changeDay: (req, res) => {
+    let { id } = req.params;
+    let { type } = req.body;
+    let index = dailyQuotes.findIndex((elem) => +elem.id === +id);
+
+    if (type === "plus") {
+      if (dailyQuotes[index].dayNumber === 7) {
+        dailyQuotes[index].dayNumber = 1;
+      } else {
+        dailyQuotes[index].dayNumber++;
+      }
+    } else if (type === "minus") {
+      if (dailyQuotes[index].dayNumber === 1) {
+        dailyQuotes[index].dayNumber = 7;
+      } else {
+        dailyQuotes[index].dayNumber--;
+      }
+    }
+    if (dailyQuotes[index].dayNumber === 1) {
+      dailyQuotes[index].day = "Monday";
+    } else if (dailyQuotes[index].dayNumber === 2) {
+      dailyQuotes[index].day = "Tuesday";
+    } else if (dailyQuotes[index].dayNumber === 3) {
+      dailyQuotes[index].day = "Wedensday";
+    } else if (dailyQuotes[index].dayNumber === 4) {
+      dailyQuotes[index].day = "Thursday";
+    } else if (dailyQuotes[index].dayNumber === 5) {
+      dailyQuotes[index].day = "Friday";
+    } else if (dailyQuotes[index].dayNumber === 6) {
+      dailyQuotes[index].day = "Saturday";
+    } else if (dailyQuotes[index].dayNumber === 7) {
+      dailyQuotes[index].day = "Sunday";
+    } else if (dailyQuotes[index].dayNumber < 1) {
+      dailyQuotes[index].dayNumber = 7;
+    }
+    res.status(200).send(dailyQuotes);
+    //console.log(dailyQuotes[index.dayNumber]);
+    //console.log(dailyQuotes[index.day]);
+  },
 };
