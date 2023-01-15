@@ -1,3 +1,6 @@
+const dailyQuotes = require("./db.json");
+let globalId = 6;
+
 let quotes = [
   "Don’t limit your challenges. Challenge your limits.",
   "Dreams don’t work unless you do.",
@@ -6,7 +9,7 @@ let quotes = [
   "You can do anything you set your mind to.",
 ];
 
-const affirmation = [
+let affirmation = [
   "I'm good enough, I'm smart enough, and doggone it, people like me.",
   "That's just stinkin' thinkin!",
   "You're should-ing all over yourself",
@@ -57,5 +60,12 @@ module.exports = {
     let randomAffirmation = affirmation[randomIndex];
     res.status(200).send(randomAffirmation);
     affirmation.splice(randomIndex, 1);
+  },
+
+  getDailyQuotes: (req, res) => res.status(200).send(dailyQuotes),
+  deleteDailyQuote: (req, res) => {
+    let index = dailyQuotes.findIndex((elem) => elem.id === +req.params.id);
+    dailyQuotes.splice(index, 1);
+    res.status(200).send(dailyQuotes);
   },
 };

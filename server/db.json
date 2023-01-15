@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "quote": "Everything you can imagine is real.",
+        "day": "Monday"
+    },
+    {
+        "id": 2,
+        "quote": "Do one thing every day that scares you",
+        "day": "Tuesday"
+    },
+    {
+        "id":3,
+        "quote":"It’s no use going back to yesterday, because I was a different person then.",
+        "day": "Wedensday"
+    },
+    {
+        "id":4,
+        "quote":"Happiness is not something ready made. It comes from your own actions.",
+        "day":"Thursday"
+    },
+    {
+        "id":5,
+        "quote":"Whatever you are, be a good one.",
+        "day":"Friday"
+    }
+]
