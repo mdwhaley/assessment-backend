@@ -4,6 +4,9 @@ const quotesBtn = document.getElementById("quotesButton");
 const affirmationBtn = document.getElementById("affirmationButton");
 const submitButton = document.getElementById("submitButton");
 const quotesContainer = document.getElementById("daysContainer");
+const quoteSubmit = document.getElementById("quoteSubmit");
+const customQuoteText = document.getElementById("#customQuote");
+const form = document.querySelector("form");
 
 const getCompliment = () => {
   axios.get("http://localhost:4000/api/compliment").then((res) => {
@@ -53,10 +56,30 @@ const deleteDailyQuote = (id) =>
     .delete(`http://localhost:4000/api/dailyQuotes/${id}`)
     .then(quotesCallback);
 
+const createQuote = (body) =>
+  axios
+    .post("http://localhost:4000/api/dailyQuotes", body)
+    .then(quotesCallback);
+
 const changeDay = (id, type) =>
   axios
     .put(`http://localhost:4000/api/dailyQuotes/${id}`, { type })
     .then(quotesCallback);
+
+function submitHandler(e) {
+  e.preventDefault();
+
+  let quote = document.querySelector("#customQuote");
+
+  let bodyObj = {
+    quote: quote.value,
+  };
+
+  createQuote(bodyObj);
+
+  quote.value = "";
+}
+
 function createQuoteCard(quote) {
   const quoteCard = document.createElement("div");
   quoteCard.classList.add("quote-card");
@@ -85,5 +108,6 @@ complimentBtn.addEventListener("click", getCompliment);
 fortuneBtn.addEventListener("click", getFortune);
 quotesBtn.addEventListener("click", getQuote);
 affirmationBtn.addEventListener("click", getAffirmation);
+form.addEventListener("submit", submitHandler);
 
 getAllQuotes();

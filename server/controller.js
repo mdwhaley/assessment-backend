@@ -104,7 +104,17 @@ module.exports = {
       dailyQuotes[index].dayNumber = 7;
     }
     res.status(200).send(dailyQuotes);
-    //console.log(dailyQuotes[index.dayNumber]);
-    //console.log(dailyQuotes[index.day]);
+  },
+  createQuote: (req, res) => {
+    let { quote } = req.body;
+    let newQuote = {
+      id: globalId,
+      quote,
+      day: "Saturday",
+      dayNumber: 6,
+    };
+    dailyQuotes.push(newQuote);
+    res.status(200).send(dailyQuotes);
+    globalId++;
   },
 };

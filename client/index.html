@@ -15,10 +15,15 @@
       <ul id="inspiration"></ul>
       <ul id="affirmation"></ul>
     </div>
-    <p>+ or - changes the day, or add your daily quote</p>
+    <div id="days">
+      <form>
+        <input type="text" id="customQuote" placeholder="What's your quote?" />
+        <button id="quoteSubmit">add quote</button>
+      </form>
+      <p>+ or - changes the day or delete quote</p>
 
-    <section id="daysContainer"></section>
-
+      <section id="daysContainer"></section>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
   </body>
