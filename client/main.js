@@ -26,10 +26,10 @@ const getQuote = () => {
   axios.get("http://localhost:4000/api/quote").then((res) => {
     const inspiration = document.getElementById("inspiration");
     const inspirationList = document.createElement("h4");
-    const deleteButton = document.createElement("button");
     const data = res.data;
     inspiration.appendChild(inspirationList);
     inspirationList.innerHTML = data;
+    document.getElementById("customQuote").value = data;
   });
 };
 
@@ -37,10 +37,10 @@ const getAffirmation = () => {
   axios.get("http://localhost:4000/api/affirmation/").then((res) => {
     const affirmation = document.getElementById("affirmation");
     const affirmationList = document.createElement("h4");
-    const deleteButton = document.createElement("button");
     const data = res.data;
     affirmation.appendChild(affirmationList);
     affirmationList.innerHTML = data;
+    document.getElementById("customQuote").value = data;
   });
 };
 
@@ -91,7 +91,7 @@ function createQuoteCard(quote) {
       <p class="quote-day">${quote.day} </p>
       <button onclick="changeDay(${quote.id}, 'plus')">+</button>
   </div>
-  <button onclick="deleteDailyQuote(${quote.id})">delete</button>
+  <button id="deleteButton" onclick="deleteDailyQuote(${quote.id})">delete</button>
   `;
 
   quotesContainer.appendChild(quoteCard);

@@ -1,0 +1,44 @@
+button {
+  background-color: #fb4f14;
+  box-shadow: 5px 5px 5px black;
+  font-weight: bold;
+  margin: 5px;
+}
+
+button:hover {
+  color: #fb4f14;
+  background-color: black;
+}
+
+footer {
+  font-size: small;
+  padding-top: 25px;
+}
+
+#createButtons p {
+  border-color: #fb4f14;
+  border-style: double;
+  border-width: 5px;
+  padding: 5px;
+}
+
+.btns-container {
+  display: flex;
+}
+
+.btns-container button {
+  padding: 7px;
+}
+
+.quote-day {
+  margin: 7px;
+}
+
+#deleteButton {
+  align-content: center;
+  margin-left: 37px;
+}
+
+.quote-title {
+  font-weight: bold;
+}
